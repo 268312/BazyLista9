@@ -55,6 +55,19 @@ public class Main {
         Long resultD = (Long) queryD.getSingleResult();
 
         System.out.println("d)" + resultD);
+//        e) Wyświetl kaloryczność wszystkich McMuffinów. Wyniki wyświetl w kilodżulach (jedna
+//        kaloria to 4184 dżule) rosnąco.
+        System.out.println("");
+        var queryStringE = "SELECT p.itemName, p.calories*4184 FROM ProductsEntity p WHERE p.itemName LIKE '%McMuffin%' ORDER BY p.calories ASC";
+        Query queryE = em.createQuery(queryStringE);
+        List<Object[]> resultE = queryE.getResultList();
+        for (Object[] r : resultE) {
+            String name = (String) r[0];
+            int cal = (int) r[1];
+
+            System.out.println(name + ": " + cal);
+        }
+        
 //        f) Wyświetl liczbę różnych wartości węglowodanów
 
         System.out.println("");
