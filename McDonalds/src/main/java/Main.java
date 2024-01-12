@@ -35,17 +35,16 @@ public class Main {
 
 //        c) Dla każdej z kategorii wyświetl produkt o największej wartości cholesterolu
 
-//        var stringC = "SELECT p.category, MAX(p.cholesterole) FROM ProductsEntity p GROUP BY p.category";
-//        Query queryC = em.createQuery(stringC);
-//        List<Object[]> resultC = queryC.getResultList();
-//        for (Object[] r : resultC) {
-//            String tmp = (String) r[0];
-//            String cat = tmp. ();
-//            int chol = (int) r[1];
-//
-//            System.out.println(cat + ": " + chol);
-//        }
-        // ten podpunkt nie jest dokończony bo miałam problem
+        var stringC = "SELECT p.category, MAX(p.cholesterole) FROM ProductsEntity p GROUP BY p.category";
+        Query queryC = em.createQuery(stringC);
+        List<Object[]> resultC = queryC.getResultList();
+        for (Object[] r : resultC) {
+            CategoriesEntity tmp = (CategoriesEntity) r[0];
+            String cat = tmp.getCatId();
+            int chol = (int) r[1];
+
+            System.out.println(cat + ": " + chol);
+        }
 
 //        d) Wyświetl liczbę kaw (Mocha lub Coffee w nazwie) niezawierających błonnika.
 
